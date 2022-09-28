@@ -1,0 +1,104 @@
+import random
+
+nyawa = 9
+katakata = ['mutlak',
+			'benar',
+			'terserap',
+			'menonjolkan',
+			'aktivis',
+			'sebenarnya',
+			'aktualitas',
+			'remaja',
+			'mempengaruhi',
+			'terpengaruh',
+			'udara',
+			'waspada',
+			'sepanjangwaktu',
+			'mengalegorisasikan',
+			'persekutuan',
+			'aliansi',
+			'kiasan',
+			'sindiran',
+			'baik',
+			'samasekali',
+			'memperkuat',
+			'analisis',
+			'semu',
+			'tampaknya',
+			'penampilan',
+			'menangkap',
+			'menilai',
+			'penilaian',
+			'anggapan',
+			'astronomis',
+			'sikap',
+			'rata-rata',
+			'sadar',
+			'kesadaran',
+			'bayi',
+			'padadasarnya',
+			'tongkat',
+			'kepercayaan',
+			'keyakinan',
+			'besar',
+			'darah',
+			'berbasisluas',
+			'tanpahenti',
+			'pusat',
+			'bersertifikat',
+			'nyanyian',
+			'klaim',
+			'rahasia',
+			'memikirkan',
+			'tanggungjawab',
+			'komentar',
+			'komentator',
+			'lengkap',
+			'samasekali',
+			'memahami',
+			'terpadu',
+			'curhat',
+			'dugaan',
+			'hatinurani',
+			'kesadaran',
+			'besar',
+			'sangat']
+
+ktkt= random.choice(katakata)
+kata = []
+tebak = []
+for i in ktkt:
+    kata.append(i)
+for j in range(len(kata)):
+    tebak.append('?')
+
+
+print('SELAMAT DATANG DI PERMAINAN TEBAK KATA')
+def masukan():
+    user = input('masukan huruf : ')
+    main(user.lower())
+
+def main(pemain):
+    global nyawa
+    if pemain in kata:
+        for i in range(len(kata)):
+            if kata[i] == pemain:
+                tebak.pop(i)
+                tebak.insert(i,pemain)
+            else:
+                continue
+        print(''.join(tebak))
+        if tebak == kata:
+            print('Kamu menang!!')
+        else:
+            return masukan()
+    else:
+        nyawa -= 1
+        print(f'Nyawa Anda tinggal {nyawa}')
+        if nyawa != 0:
+            return masukan()
+        else:
+            print('Kamu kalah')
+            print(f'Kata yang sebenarnya adalah : {"".join(kata)}')
+
+masukan()
