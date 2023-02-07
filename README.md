@@ -1,2 +1,2 @@
 # Permainana-Tebak-Kata
-Proyek 1
+<p>Permainan tebak kata merupakan project sederhana yang menggunakan library random</p>
